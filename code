@@ -1,0 +1,28 @@
+
+#include <Servo.h>
+Servo servomotor;
+
+
+const int gasPin=A0;
+
+void setup(){
+
+Serial.begin(9600);
+servomotor.attach(9); // 서보모터핀
+
+}
+
+
+void loop(){
+int GasValue=analogRead(gasPin);
+Serial.print("GasValue=");
+Serial.println(GasValue);
+
+
+if(GasValue>=50){ servomotor.write(70);} 
+
+else { servomotor.write( 0); } 
+
+delay(1000);
+
+}
